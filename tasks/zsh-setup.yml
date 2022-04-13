@@ -1,13 +1,17 @@
 - name: Install ZSH
   apt: name=zsh
+  become: true
   tags: &tags_for_zsh_tasks ["install", "productivity", "dotfiles", "zsh"]
 
 - name: Change shell to zsh
   shell: chsh -s $(which zsh)
+  become: true
   tags: *tags_for_zsh_tasks
-# - name: Startship
-#   shell: curl -sS https://starship.rs/install.sh | sh
-#   tags: *tags_for_zsh_tasks
+
+- name: Startship
+  shell: curl -sS https://starship.rs/install.sh | sh
+  become: true
+  tags: *tags_for_zsh_tasks
 # become_user: theprimeagen
 # - name: Install zsh-autosuggestions
 #   ansible.builtin.git:
