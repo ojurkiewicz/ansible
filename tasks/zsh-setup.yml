@@ -9,7 +9,11 @@
   tags: *tags_for_zsh_tasks
 
 - name: Startship
-  shell: curl -sS https://starship.rs/install.sh | sh
+  ansible.builtin.expect:
+    command: curl -sS https://starship.rs/install.sh | sh
+    responses:
+      Question:
+        - y
   become: true
   tags: *tags_for_zsh_tasks
 # become_user: theprimeagen
