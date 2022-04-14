@@ -9,7 +9,7 @@
   tags: *tags_for_zsh_tasks
 
 - name: Startship
-  shell: echo "y\n" | curl -sS https://starship.rs/install.sh | sh
+  shell: snap install starship
   become: true
   tags: *tags_for_zsh_tasks
 # become_user: theprimeagen
