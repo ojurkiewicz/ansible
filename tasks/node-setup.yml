@@ -41,6 +41,34 @@
     - install
     - node
 
+- name: Make N cache folder
+  shell: mkdir -p /usr/local/n
+  become: true
+  tags:
+    - install
+    - node
+
+- name: Take ownership of N cache folder
+  shell: chown -R $(whoami) /usr/local/n
+  become: true
+  tags:
+    - install
+    - node
+
+- name: Make sure required folders exists
+  shell: mkdir -p /usr/local/bin /usr/local/lib /usr/local/include /usr/local/share
+  become: true
+  tags:
+    - install
+    - node
+
+- name: Take ownership of required destination folders
+  shell: chown -R $(whoami) /usr/local/bin /usr/local/lib /usr/local/include /usr/local/share
+  become: true
+  tags:
+    - install
+    - node
+
 - name: Install correct version of Node
   become: true
   shell: n 14
