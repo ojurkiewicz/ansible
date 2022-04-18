@@ -13,12 +13,14 @@
     - node
 
 - name: add npmjs to path
+  become: true
   shell: PATH=~/.local/.npm-global/bin:$PATH
   tags:
     - install
     - node
 
 - name: npmjs global settings
+  become: true
   shell: npm config set prefix '~/.local/.npm-global'
   tags:
     - install
@@ -40,6 +42,7 @@
     - node
 
 - name: Install correct version of Node
+  become: true
   shell: n 14
   tags:
     - install
