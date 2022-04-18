@@ -18,10 +18,10 @@
     - install
     - dotfiles
     - stow
-# - name: Stow dotfiles
-#   become: true
-#   shell: cd $HOME/.dotfiles && ./stow.sh
-#   tags:
-#     - install
-#     - dotfiles
-#     - stow
+- name: Stow dotfiles
+  become: true
+  shell: cd $HOME/.dotfiles && ./stow.sh
+  tags:
+    - install
+    - dotfiles
+    - stow
