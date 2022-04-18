@@ -1,8 +1,8 @@
 - hosts: localhost
-  # vars:
-  #   source_key: "./.ssh/id_rsa"
-  #   dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa"
-  #   personal: "{{ lookup('env', 'HOME') }}/personal"
+  vars:
+    source_key: "./.ssh/id_rsa"
+    dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa"
+    personal: "{{ lookup('env', 'HOME') }}/personal"
   pre_tasks:
     - name: Update Apt
       become: true
@@ -14,8 +14,8 @@
         - install
         - core
   tasks:
-    # - include: tasks/ssh.yml
-    # - include: tasks/git-setup.yml
+    - include: tasks/ssh.yml
+    - include: tasks/git-setup.yml
     # - include: tasks/core-setup.yml
     # - include: tasks/node-setup.yml
     # - include: tasks/npm-packages.yml
