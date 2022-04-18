@@ -37,15 +37,7 @@
 #     - "{{ lookup('env', 'HOME') }}/.ssh/*.pub"
 
 - name: Ensure ssh-agent is running
-  shell: eval $(ssh-agent -s)
-  become: true
-  tags:
-    - dotfiles
-    - install
-    - ssh
-
-- name: Add ssh identity
-  shell: ssh-add ~/.ssh/id_rsa
+  shell: eval $(ssh-agent -s) && ssh-add ~/.ssh/id_rsa
   become: true
   tags:
     - dotfiles
