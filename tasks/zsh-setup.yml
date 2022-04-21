@@ -12,9 +12,3 @@
   shell: snap install starship
   become: true
   tags: *tags_for_zsh_tasks
-# become_user: theprimeagen
-# - name: Install zsh-autosuggestions
-#   ansible.builtin.git:
-#     repo: 'https://github.com/zsh-users/zsh-autosuggestions.git'
-#     dest: "~/.oh-my-zsh/plugins/zsh-autosuggestions"
-#   tags: *tags_for_zsh_tasks
