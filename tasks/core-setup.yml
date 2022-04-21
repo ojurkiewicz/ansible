@@ -69,3 +69,9 @@
   community.general.pacman:
     name: "tmux"
     state: present
+
+- name: Install Stow
+  become: true
+  community.general.pacman:
+    name: "stow"
+    state: present
