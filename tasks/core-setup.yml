@@ -1,70 +1,71 @@
-- name: Install System Packages 1 (build-essential, cmake, pkg-config, pthread)
+- name: Install i3
   become: true
-  apt:
-    name: ["build-essential", "cmake", "pkg-config", "libpthread-stubs0-dev"]
-  tags:
-    - install
-    - neovim
-    - core
+  community.general.pacman:
+    name: "i3"
+    state: present
 
-- name: Install System Packages 2 (lua, unzip, libtool, libtool-bin, gettext)
+- name: Install i3status
   become: true
-  apt:
-    name: ["lua5.1", "unzip", "libtool", "libtool-bin", "gettext"]
-  tags:
-    - install
-    - neovim
-    - core
+  community.general.pacman:
+    name: "i3status"
+    state: present
 
-- name: Install System Packages 3 (the rest)
+- name: Install Neovim
   become: true
-  apt:
-    name: [
-        "compton",
-        "curl",
-        "htop",
-        "golang",
-        "lsof",
-        "i3",
-        "ccache",
-        "ninja-build",
-        "python3-pip",
-        "dconf-editor",
-        # "nvidia-settings",
-        # "pavucontrol",
-        "moreutils",
-        "clangd",
-      ]
-  tags:
-    - install
-    - core
+  community.general.pacman:
+    name: "neovim"
+    state: present
 
-- name: Install Clang
+- name: Install Bat
   become: true
-  apt:
-    name:
-      [
-        "clang",
-        "clang-11",
-        "clang-12",
-        "clangd",
-        "clangd-10",
-        "clangd-11",
-        "clangd-12",
-      ]
-  tags:
-    - install
-    - neovim
-    - core
+  community.general.pacman:
+    name: "bat"
+    state: present
 
-- name: dconf i3
-  shell: dconf write /org/mate/desktop/session/required-components/windwmanager "'i3'"
-  tags:
-    - install
-    - core
+- name: Install Exa
+  become: true
+  community.general.pacman:
+    name: "exa"
+    state: present
 
-- name: dconf i3
-  shell: dconf write /org/mate/desktop/background/show-desktop-icons "false"
-  tags:
-    - install
-    - core
+- name: Install Alacritty
+  become: true
+  community.general.pacman:
+    name: "alacritty"
+    state: present
+
+- name: Install Node 16 LTS
+  become: true
+  community.general.pacman:
+    name: "nodejs-lts-gallium"
+    state: present
+
+- name: Install NPM
+  become: true
+  community.general.pacman:
+    name: "npm"
+    state: present
+
+- name: Install Starship
+  become: true
+  community.general.pacman:
+    name: "starship"
+    state: present
+
+- name: Shutter
+  become: true
+  community.general.pacman:
+    name: "shutter"
+    state: present
+
+- name: Install fzf
+  become: true
+  community.general.pacman:
+    name: "fzf"
+    state: present
+
+- name: Install tmux
+  become: true
+  community.general.pacman:
+    name: "tmux"
+    state: present
