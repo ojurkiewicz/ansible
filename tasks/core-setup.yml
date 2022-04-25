@@ -4,6 +4,18 @@
     name: "i3-wm"
     state: present
 
+- name: Install dmenu
+  become: true
+  community.general.pacman:
+    name: "dmenu"
+    state: present
+
+- name: Install nm-applet
+  become: true
+  community.general.pacman:
+    name: "network-manager-applet"
+    state: present
+
 - name: Install i3status
   become: true
   community.general.pacman:
@@ -74,4 +86,16 @@
   become: true
   community.general.pacman:
     name: "stow"
+    state: present
+
+- name: Install Thunderbird
+  become: true
+  community.general.pacman:
+    name: "thunderbird"
+    state: present
+
+- name: Install File manager
+  become: true
+  community.general.pacman:
+    name: "nautilus"
     state: present
