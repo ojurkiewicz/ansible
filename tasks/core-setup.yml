@@ -76,6 +76,12 @@
     name: "fzf"
     state: present
 
+- name: Install ripgrep
+  become: true
+  community.general.pacman:
+    name: "rg"
+    state: present
+
 - name: Install tmux
   become: true
   community.general.pacman:
